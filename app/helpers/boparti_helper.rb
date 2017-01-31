@@ -1,0 +1,2 @@
+module BopartiHelper
+end

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ca_nom: MyString
+  ca_prenom: MyString
+  ca_photo: MyText
+  ca_program: MyText
+  ca_program_pdf: MyText
+  ca_accroche: MyText
+
+two:
+  ca_nom: MyString
+  ca_prenom: MyString
+  ca_photo: MyText
+  ca_program: MyText
+  ca_program_pdf: MyText
+  ca_accroche: MyText

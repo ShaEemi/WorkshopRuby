@@ -1,0 +1,29 @@
+<h1>Contactez-nous</h1>
+
+
+<%= form_for :contact, url: contacts_path do |f| %>
+
+  <p>
+    <%= f.label :'Nom-Prénom' %><br>
+    <%= f.text_field :co_nom, :class => 'form-control' %>
+  </p>
+
+    <p>
+      <%= f.label :Email %><br>
+      <%= f.text_field :co_email, :class => 'form-control' %>
+    </p>
+
+  <p>
+    <%= f.label :Sujet %><br>
+    <%= f.text_field :co_sujet, :class => 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.label :Message %><br>
+    <%= f.text_area :co_message, :class => 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.submit  "Envoyer le message" , :class => 'btn btn-sm btn-success'%>
+  </p>
+<% end %>

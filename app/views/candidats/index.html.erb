@@ -1,0 +1,26 @@
+<% if session[:ut_statut] == true %>
+    <%= link_to 'Ajouter un candidat', new_candidat_path, :class => 'btn btn-sm btn-success' %>
+<% end %><br/>
+<h1>Listing des candidats</h1>
+<table class="table">
+  <tr>
+    <th>Candidats</th>
+    <th>Parti Politique</th>
+  </tr>
+
+  <% @candidats.each do |candidat| %>
+    <tr>
+
+      <td><%= candidat.ca_nom %> <%= candidat.ca_prenom %></td>
+      <td>
+      <% @bopartis.each do |boparti| %>
+        <% if candidat.bopartis_id == boparti.id %>
+            <%= boparti.pa_nom %>
+        <% end %>
+		<% end %>
+                        	
+      </td>
+      <td><%= link_to 'Plus de Détails', candidat_path(candidat),:class => 'btn btn-sm btn-success'  %></td>
+    </tr>
+  <% end %>
+</table>

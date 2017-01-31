@@ -1,0 +1,42 @@
+<h1>Ajouter une élection</h1>
+
+
+
+<%= form_for :bogestionelection, url: bogestionelections_path do |f| %>  <p>
+
+    <%= f.label :'Titre' %><br>
+    <%= f.text_field :el_titre, :class => 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.label :'Description' %><br>
+    <%= f.text_area :el_descr, :class => 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.label :'Date de début' %><br>
+      <input type="datetime-local" name="el_date_debut" class='form-control' />
+  </p>
+
+  <p>
+      <%= f.label :'Date de fin' %><br>
+      <input type="datetime-local" name="el_date_fin" class='form-control' />
+    </p>
+
+  <% @candidats.each do |candidat| %>
+        <input type="checkbox" name="candidats_id[]" value="<%= candidat.id %>"/> <%= candidat.ca_prenom %> <%= candidat.ca_nom %>
+
+         <% @bopartis.each do |boparti| %>
+            <% if candidat.bopartis_id == boparti.id %>
+                (<%= boparti.pa_nom %>)
+            <% end %>
+         <% end %>
+    <br/>
+   <% end %>
+
+  <p>
+<br/>
+    <%= f.submit "Ajouter l'élection", :class => 'btn btn-sm btn-success' %>
+  </p>
+
+<% end %>

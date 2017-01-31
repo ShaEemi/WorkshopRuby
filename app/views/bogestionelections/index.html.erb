@@ -1,0 +1,22 @@
+ <% if session[:ut_statut] == true %>
+    <%= link_to 'Ajouter une élection', new_bogestionelection_path, :class => 'btn btn-sm btn-success' %>
+<% end %><br/>
+<h1>Listing des élections</h1>
+<table class="table">
+  <tr>
+    <th>Titre</th>
+    <th>Description</th>
+    <th>Date/Heure de début</th>
+    <th>Date/Heure de fin</th>
+  </tr>
+
+
+  <% @bogestionelections.each do |bogestionelection| %>
+    <tr>
+      <td><%= bogestionelection.el_titre %></td>
+      <td><%= bogestionelection.el_descr %></td>
+      <td><%= bogestionelection.el_date_debut.strftime("%d/%m/%Y à %I:%M") %></td>
+      <td><%= bogestionelection.el_date_fin.strftime("%d/%m/%Y à %I:%M") %></td>
+    </tr>
+  <% end %>
+</table>

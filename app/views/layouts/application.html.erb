@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @page_title || "Aucun titre défini" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+          <li><%= link_to 'Actualites', actualites_path %></li>
+            <li><%= link_to 'Elections', bogestionelections_path %></li>
+            <li><%= link_to 'Partis', bopartis_path %></li>
+            <li><%= link_to 'Candidats', candidats_path %></li>
+            <li><%= link_to 'Resultats', resultats_path %></li>
+            <% if session[:id] %>
+                <li><%= link_to 'Voter', votes_path %></li>
+             <% end %>
+            <li><%= link_to 'Contacter', new_contact_path %></li>
+           <% if session[:id] %>
+                <li><%= link_to 'Deconnexion', deconnexion_path %></li>
+           <% else %>
+                <li><%= link_to 'Connexion', connexion_path %></li>
+                <li><%= link_to 'Inscription', inscription_path %></li>
+
+            <% end %>
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+            <% if flash[:notice] %>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-<%= flash[:color] %>" role="alert"><%= notice %></div>
+                    </div>
+                </div>
+            <% end %>
+                <%= yield %>
+            </div>
+        </div>
+
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<h1>Ajouter un parti politique</h1>
+
+
+
+<%= form_for :boparti, url: bopartis_path do |f| %>  <p>
+
+    <%= f.label :'Nom du parti' %><br>
+    <%= f.text_field :pa_nom, :class => 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.label :'Sigle du parti' %><br>
+    <%= f.text_area :pa_sigle, :class => 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.submit "Ajouter le parti", :class => 'btn btn-sm btn-success' %>
+  </p>
+<% end %>

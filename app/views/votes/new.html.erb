@@ -1,0 +1,33 @@
+<h1>MON VOTE </h1>
+<%= form_for :vote, url: votes_path do |f| %>
+    <h2> Mon identité </h2>
+
+            Nom : <%= @iduser.ut_nom %><br/>
+            Prénom : <%= @iduser.ut_prenom %><br/>
+            Date de naissance : <%= @iduser.ut_date_naissance.strftime("%d/%m/%Y") %><br/>
+            Adresse : <%= @iduser.ut_adresse %> <%= @iduser.ut_postal %> <%= @iduser.ut_ville %> <%= @iduser.ut_pays %><br/>
+            Email : <% first, *rest = @iduser.ut_email.split(/@/) %> <%= first %>...<br/>
+
+
+            <input type="radio" name="validate_identite" value="1" class="form-check-input"/> Je confirme mon identité<br/>
+            <input type="radio" name="validate_identite" value="0" class="form-check-input"/> Je ne confirme pas cette identité
+
+    <h2> Mon vote </h2>
+
+    <% @candidats.each do |candidat| %>
+        <% if candidat.id.to_s == @vote %>
+            <h3><%= candidat.ca_prenom %><%= candidat.ca_nom %><% @bopartis.each do |boparti| %><% if candidat.bopartis_id == boparti.id %>(<%= boparti.pa_nom %>)<% end %></h3>
+        <% end %>
+             <input type="hidden" name="candidats_id" value="<%= candidat.id %>"/>
+             <input type="hidden" name="bgoelectionid" value="<%= @bgoelectionid %>"/><br/>
+            <input type="radio" name="validate_candidat" value="1" class="form-check-input"/> Je confirme ce vote<br/>
+            <input type="radio" name="validate_candidat" value="0" class="form-check-input"/> Je ne confirme pas ce vote
+        <% end %>
+    <% end %>
+
+  <p>
+  <br/>
+    <%= f.submit "VOTER" , :class => 'btn btn-sm btn-success'%>
+  </p>
+
+<% end %>

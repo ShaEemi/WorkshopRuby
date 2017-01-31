@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  co_nom: MyString
+  co_sujet: MyString
+  co_message: MyText
+  co_email_string: MyString
+
+two:
+  co_nom: MyString
+  co_sujet: MyString
+  co_message: MyText
+  co_email_string: MyString

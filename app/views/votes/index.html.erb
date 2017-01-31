@@ -1,0 +1,30 @@
+<h1><%= @bgoelectionname %></h1>
+<p><%= @bgoelectiondescr %></p>
+<p>Date de début : <%= @bgoelectiondeb %></p>
+<p>Date de fin : <%= @bgoelectionfin %></p>
+<h2>Choissez votre candidat</h1>
+ <%= form_for :vote, url: new_vote_path do |f| %>
+  <p>
+      <% @competiteurs.each do |competiteur| %>
+            <% if competiteur.bogestionelections_id == @bgoelectionid %>
+                <% @candidats.each do |candidat| %>
+                     <% if candidat.id == competiteur.candidats_id %>
+                        <input type="radio" name="idcandidat" value="<%= candidat.id %>" class="form-check-input"/>
+                        <%= candidat.ca_prenom %>
+                        <%= candidat.ca_nom %>
+                        <% @bopartis.each do |boparti| %>
+                            <% if candidat.bopartis_id == boparti.id %>
+                                (<%= boparti.pa_nom %>)
+                            <% end %>
+                        <% end %>
+                        <br/>
+                    <% end %>
+                <% end %>
+            <% end %>
+      <% end %>
+     <input type="hidden" name="bgoelectionid" value="<%= @bgoelectionid%>"/>
+     <br/>
+    <%= f.submit "Je confirme mon choix de candidat", :class => 'btn btn-sm btn-success' %>
+   </p>
+
+<% end %>

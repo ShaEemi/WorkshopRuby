@@ -1,0 +1,2 @@
+class Boparti < ApplicationRecord
+end

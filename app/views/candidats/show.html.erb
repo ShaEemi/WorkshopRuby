@@ -1,0 +1,35 @@
+<h1><%= @candidat.ca_prenom %> <%= @candidat.ca_nom %></h1>
+<p>
+	<%= @candidat.ca_accroche %>
+<p>
+
+<p>
+	<img src="<%= @candidat.ca_photo %>" style="width:220px; height:330px">
+</p>
+
+<p>
+  <strong>Nom :</strong>
+  <%= @candidat.ca_nom %>
+</p>
+
+<p>
+  <strong>Prénom :</strong>
+  <%= @candidat.ca_prenom %>
+</p>
+
+<p>
+  <strong>Parti Politique :</strong>
+  <% @bopartis.each do |boparti| %>
+        <% if @candidat.bopartis_id == boparti.id %>
+            <%= boparti.pa_nom %>
+        <% end %>
+		<% end %>
+</p>
+<br><br><br>
+<p>
+  <strong>Programme Politique :</strong><br>
+  <%= @candidat.ca_program %>
+</p>
+<p>
+  <strong><a href="<%= @candidat.ca_program_pdf %>" target="_blank">Télécharger le Programme Politique</a></strong>
+</p>

@@ -1,0 +1,45 @@
+<h1>Ajouter un Candidats</h1>
+
+<%= form_for :candidat, url: candidats_path do |f| %>    
+
+  <p>
+    <%= f.label :'Nom du candidat' %><br>
+    <%= f.text_field :ca_nom, :class => 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.label :'Prénom du candidat' %><br>
+    <%= f.text_field :ca_prenom, :class => 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.label :'URL photo candidat' %><br>
+    <%= f.text_area :ca_photo , :class => 'form-control'%>
+  </p>
+
+  <p>
+    <%= f.label :'Programme politique' %><br>
+    <%= f.text_area :ca_program , :class => 'form-control'%>
+  </p>
+
+  <p>
+    <%= f.label :'Programme politique PDF' %><br>
+    <%= f.text_area :ca_program_pdf , :class => 'form-control'%>
+  </p>
+
+  <p>
+    <%= f.label :'Phrase d\'accroche' %><br>
+    <%= f.text_area :ca_accroche, :class => 'form-control' %>
+  </p>
+  <p>
+
+    <% @bopartis.each do |g| %>
+      <%= f.radio_button :bopartis_id, g.id %> <%= g.pa_nom %><br />
+    <% end %>
+
+  </p>
+
+  <p>
+    <%= f.submit 'Ajouter le candidat' , :class => 'btn btn-sm btn-success' %>
+  </p>
+<% end %>

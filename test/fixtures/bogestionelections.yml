@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  el_titre: MyString
+  el_descr: MyText
+  el_date_debut: 2017-01-24 11:22:08
+  el_date_fin: 2017-01-24 11:22:08
+
+two:
+  el_titre: MyString
+  el_descr: MyText
+  el_date_debut: 2017-01-24 11:22:08
+  el_date_fin: 2017-01-24 11:22:08

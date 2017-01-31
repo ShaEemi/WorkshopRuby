@@ -1,0 +1,17 @@
+<% if session[:ut_statut] == true %>
+    <%= link_to 'Ajouter un parti', new_boparti_path, :class => 'btn btn-sm btn-success' %>
+<% end %><br/>
+<h1>Listing des partis</h1>
+<table class="table">
+  <tr>
+    <th>Nom</th>
+    <th>Sigle</th>
+  </tr>
+
+  <% @bopartis.each do |boparti| %>
+    <tr>
+      <td><%= boparti.pa_nom %></td>
+      <td><%= boparti.pa_sigle %></td>
+    </tr>
+  <% end %>
+</table>

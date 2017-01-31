@@ -1,0 +1,130 @@
+<h1>Résultats</h1>
+
+<h2>Nombre de votants par candidats : </h2>
+<canvas id="myChart"></canvas>
+
+
+
+<h2>Nombre de votants total : </h2>
+
+<%= @i %>
+
+
+<h2> Pourcentage de voix par candidat : </h2>
+
+<canvas id="myChart2"></canvas>
+
+
+
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels:
+        [
+        <% @competiteurs.each do |competiteur| %>
+                    <% if competiteur.bogestionelections_id == 1 %>
+                        <% @candidats.each do |candidat| %>
+                             <% if candidat.id == competiteur.candidats_id %>
+                                "<%= candidat.ca_prenom %> <%= candidat.ca_nom %><% @bopartis.each do |boparti| %><% if candidat.bopartis_id == boparti.id %> (<%= boparti.pa_nom %>)<% end %><% end %>",
+                            <% end %>
+                        <% end %>
+                    <% end %>
+              <% end %>
+
+        ],
+        datasets: [{
+            label: 'Nombre de votes par candidats',
+            data:  <%= @separatevote %>,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    responsive: true,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    stepSize: 5
+                }
+            }]
+        }
+    }
+});
+
+
+
+
+
+var ctx = document.getElementById("myChart2");
+var myChart = new Chart(ctx, {
+    responsive: true,
+    maintainAspectRatio: true,
+    type: 'bar',
+    data: {
+        labels:
+        [
+        <% @competiteurs.each do |competiteur| %>
+                    <% if competiteur.bogestionelections_id == 1 %>
+                        <% @candidats.each do |candidat| %>
+                             <% if candidat.id == competiteur.candidats_id %>
+                                "<%= candidat.ca_prenom %> <%= candidat.ca_nom %><% @bopartis.each do |boparti| %><% if candidat.bopartis_id == boparti.id %> (<%= boparti.pa_nom %>)<% end %><% end %>",
+                            <% end %>
+                        <% end %>
+                    <% end %>
+              <% end %>
+
+        ],
+        datasets: [{
+            label: 'Pourcentage des votes par candidats',
+            data: <%= @percentagevotes %>,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    responsive: true,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    max: 100,
+                    min: 0,
+                    stepSize: 5
+                }
+            }]
+        }
+    }
+});
+</script>

@@ -1,0 +1,62 @@
+<h1>Inscrivez-vous</h1>
+
+
+<%= form_for :electeur, url: inscription_path do |f| %>
+
+	<p>
+		<%= f.label :'Nom' %><br>
+		<%= f.text_field :ut_nom , :class => 'form-control'%>
+	</p>
+	<p>
+		<%= f.label :'Prénom' %><br>
+		<%= f.text_field :ut_prenom , :class => 'form-control'%>
+	</p>
+	<p>
+		<%= f.label :'Date de naissance' %><br>
+		<%= f.date_field :ut_date_naissance , :class => 'form-control'%>
+	</p>
+	<p>
+		<%= f.label :'Lieu de naissance' %><br>
+		<%= f.text_field :ut_lieu_naissance , :class => 'form-control'%>
+	</p>
+	<p>
+		<%= f.label :'Adresse' %><br>
+		<%= f.text_field :ut_adresse , :class => 'form-control'%>
+	</p>
+	<p>
+		<%= f.label :'Code postal' %><br>
+		<%= f.number_field :ut_postal, :class => 'form-control' %>
+	</p>
+	<p>
+		<%= f.label :'Ville' %><br>
+		<%= f.text_field :ut_ville , :class => 'form-control'%>
+	</p>
+	<p>
+		<%= f.label :'Pays' %><br>
+		<%= f.text_field :ut_pays , :class => 'form-control'%>
+	</p>
+
+	<p>
+		<%= f.label :Email %><br>
+		<%= f.email_field :ut_email, :class => 'form-control' %>
+	</p>
+
+	<p>
+		<%= f.label :'Mot de passe' %><br>
+		<%= f.password_field :password_digest, :class => 'form-control' %>
+	</p>
+
+	<p>
+		<%= f.label :'Upload carte d\'identité recto' %><br>
+		<%= f.file_field :ut_urlIDR, :class => 'form-control' %>
+	</p>
+
+	<p>
+		<%= f.label :'Upload carte d\'identité verso' %><br>
+		<%= f.file_field :ut_urlIDV, :class => 'form-control' %>
+	</p>
+
+	<p>
+		<%= f.submit 'S\'inscrire', :class => 'btn btn-sm btn-success' %>
+	</p>
+<% end %>

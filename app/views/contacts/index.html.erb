@@ -1,0 +1,22 @@
+<h1>Listing des messages</h1>
+<table class="table">
+  <tr>
+    <th>Nom</th>
+    <th>Sujet</th>
+    <th>Message</th>
+    <th>Email</th>
+    <th>Date</th>
+    <th></th>
+  </tr>
+
+  <% @contacts.each do |contact| %>
+    <tr>
+      <td><%= contact.co_nom %></td>
+      <td><%= contact.co_sujet %></td>
+      <td><%= contact.co_message %></td>
+      <td><%= contact.co_email %></td>
+      <td><%= contact.created_at %></td>
+      <td><a href="mailto:<%= contact.co_email %>">Répondre</a></td>
+    </tr>
+  <% end %>
+</table>

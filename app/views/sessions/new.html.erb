@@ -1,0 +1,11 @@
+<h2><%= link_to 'S\'inscrire', inscription_path, :class => 'btn btn-sm btn-warning' %></h2>
+<h1>Connectez-vous</h1>
+
+<%= form_for(:session, url: connexion_path) do |f| %> 
+  <%= f.email_field :ut_email, :placeholder => "Email", :class => 'form-control' %>
+  <br>
+  <%= f.password_field :password_digest, :placeholder => "Mot de passe", :class => 'form-control' %>
+  <br>
+  <%= f.submit "Se connecter", class: "btn btn-sm btn-success" %>
+<% end %>
+
