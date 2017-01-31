@@ -4,11 +4,11 @@ A Voter! est un site internet pour le gouvernement français. Il permet aux memb
 
 ## Auteurs
 
-* [William Merle-Marty](https://bitbucket.org/willeemi/)
+* [William Merle-Marty](https://github.com/williammerlemarty)
 
-* [Sharon Colin](https://bitbucket.org/sharonEemi/)
+* [Sharon Colin](https://github.com/ShaEemi/)
 
-* [Grégoire Sayer](https://bitbucket.org/Hockfird-EEMI/)
+* [Grégoire Sayer](https://github.com/HockFird)
 
 ## Version 1.0
 
